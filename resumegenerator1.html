@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="resume.js"></script>
+    <style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px 0;
+}
+
+.container {
+    background-color: rgb(152, 213, 230);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+h1 {
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    justify-content: center;
+}
+
+h1 + p {
+    color: #464a92;
+    font-style: italic;
+    margin-bottom: 30px;
+    justify-content: right;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #adb5bd;
+    font-style: italic;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    position: center;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(45deg, #5a67d8, #6b46c1);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .form-control {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    
+    .btn {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+}
+
+/* Custom styling for specific sections */
+.row:last-child {
+    margin-top: 30px;
+}
+
+.text-center .btn {
+    margin: 0 5px;
+}
+
+/* Add some visual separation */
+.form-group:nth-child(even) {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+/* Smooth animations */
+.container {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}</style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="row">
+                <div class="text-center col-12">
+                    <h1 class="my-2 text-center">Resume Generator</h1>
+                    <p class="my-1 text-center">Designed by Jitin Kumar</p>
+                </div>
+            </div>
+            
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="nameField">Name:</label>
+                        <input type="text" id="nameField" class="form-control" placeholder=""/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="addressField">Address:</label>
+                        <textarea id="addressField" class="form-control" rows="3" placeholder=""></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="emailField">Email:</label>
+                        <input type="email" id="emailField" class="form-control" placeholder=""/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="phoneField">Phone:</label>
+                        <input type="tel" id="phoneField" class="form-control" placeholder=""/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="linkedinField">LinkedIn:</label>
+                        <input type="url" id="linkedinField" class="form-control" placeholder="LinkedIn profile URL"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="githubField">GitHub:</label>
+                        <input type="url" id="githubField" class="form-control" placeholder="GitHub profile URL"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="languagesField">Languages:</label>
+                        <input type="text" id="languagesField" class="form-control" placeholder="Enter languages you speak (comma-separated)"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="hobbiesField">Hobbies:</label>
+                        <input type="text" id="hobbiesField" class="form-control" placeholder=""/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="professionField">Profession:</label>
+                        <input type="text" id="professionField" class="form-control" placeholder=""/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="skillsField">Skills:</label>
+                        <textarea id="skillsField" class="form-control" rows="3" placeholder="Enter your skills "></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="experienceField">Work Experience:</label>
+                        <textarea id="experienceField" class="form-control" rows="3" placeholder="Describe your work experience"></textarea>
+                        <div class="mt-1 text-center">
+                            <button class="mt-2 btn btn-primary" type="button" onclick="addnewexperienceField()">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="certificationsField">Certifications:</label>
+                        <input type="text" id="certificationsField" class="form-control" placeholder=""/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="websiteField">Website:</label>
+                        <input type="url" id="websiteField" class="form-control" placeholder=""/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="projectsField">Projects:</label>
+                        <textarea id="projectsField" class="form-control" placeholder=""></textarea>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="educationField">Academic Details:</label>
+                        <textarea id="educationField" class="form-control" rows="3" placeholder="Enter your academic details (comma-separated)"></textarea>
+                        <div class="mt-1 text-center">
+                            <button class="mt-2 btn btn-primary" type="button" onclick="addneweducationField()">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-group">
+                        <label for="achievementsField">Achievements:</label>
+                        <input type="text" id="achievementsField" class="form-control" placeholder=""/>
+                    </div>
+                </div>
+            </div>
+            
+             <div class="row">
+                <div class="col-12">
+                    <div class="my-3 form-group">
+                        <label for="personalStatementField">Personal Statement:</label>
+                        <textarea id="personalStatementField" class="form-control" rows="3" placeholder="Write a brief personal statement about yourself"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="mt-1 text-center">
+                        <button class="mt-2 btn btn-primary" onclick="generateResume()">Generate Resume</button>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+</body>
+</html>
